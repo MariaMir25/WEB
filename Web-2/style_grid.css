@@ -1,0 +1,140 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.section2356 {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.section235 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.section2 {
+	 width: 33vw; 
+    text-align: right;
+    background-color: #F8E0F7;
+    padding: 20px;
+    font-size: 25px;
+}
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.section23564 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.section35 {
+	 width: 33vw; 
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.section3 {
+    word-wrap: break-word;
+    background-color: white;
+    padding: 20px;
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto; 
+}
+
+.section5 {
+    word-wrap: break-word;
+    text-align: center;
+    font-size: 30px;
+    background-color: #A9F5A9;
+    padding: 20px;
+    height: auto; 
+}
+
+.section6 {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    font-size: 25px;
+    background-color: #E0F8F1;
+    min-height: 100px;
+    overflow: auto;
+    padding: 30px;
+}
+
+.section-Y {
+    word-wrap: break-word;
+    grid-template-rows: auto auto;
+    background: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.sectionNoY {
+    grid-template-rows: auto;
+    text-align: right;
+}
+.sectionX {
+	 justify-content: center;
+	height: 1em;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    font-size: 25px;
+}
+
+
+
+.sectionNoX {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    text-align: right;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; 
+    font-size: 25px;
+    padding: 30px;
+    background-color: #E0F8F1;
+    text-align: right;
+    overflow: hidden;
+	align-items: center;
+}
+
+
+.section4 {
+    text-align: right;
+    background-color: #F8E0F7;
+    padding: 20px;
+    font-size: 25px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 33vw; 
+    overflow-y: auto;
+}
+.menu a {
+     text-decoration: underline; 
+    color: blue;
+}
+.menu li {
+    text-align: right;
+}
+
+.menu {
+    font-size: 50px;
+    list-style-position: inside;
+}
