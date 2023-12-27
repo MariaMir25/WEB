@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+<body>
+    <header>
+        <section class="sectionX"> 
+        </section>
+    </header>
+    <main>
+        <section class="section23564">
+            <section class="section2356">
+                <section class="section235">
+                    <section class="section2">   
+                    </section>    
+                    <section class="section35">
+                        <section class="section3 background-image">
+                            <div class="anim"></div>
+                        </section>
+                        <section class="section5">
+                            <button class="play-button">Play</button>
+                            <button class="close-button">Close</button>
+                        </section>
+                    </section>                    
+                </section>
+                <section class="section6">
+                    <section class="section-Y">    
+                    </section>
+                    <section class="sectionNoY">    
+                    </section>
+                </section>                                      
+            </section>
+            <section class="section4">    
+            </section>
+        </section>
+    </main>
+     <script>
+	document.addEventListener('DOMContentLoaded', function () {
+			
+            const squares = [];  
+            let square1, square2;
+            let posX1, posY1, posX2, posY2;
+            let squaresStopped = false;
+            let squaresStopped2 = false;
+            let animating = false;
+
+            function createSquare(color) {
+                const square = document.createElement('div');
+                square.classList.add('square');
+                square.style.width = '20px';
+                square.style.height = '20px';
+                square.style.backgroundColor = color;
+                return square;
+            }
+
+            function moveSquares() {
+                const animArea = document.querySelector('.anim');
+                square1 = createSquare('green');
+                square2 = createSquare('orange');
+                squares.push(square1, square2);
+
+                posX1 = 0;
+                posY1 = 0;
+                posX2 = 0;
+                posY2 = 200;
+
+                squaresStopped = false;
+                squaresStopped2 = false;
+
+                function animateSquares() {
+                    posX1 += 1;
+                    posY1 += 1;
+                    posX2 += 1;
+                    posY2 -= 1;
+
+                    const animAreaWidth = animArea.clientWidth;
+                    const animAreaHeight = animArea.clientHeight;
+
+                    const square1OutsideBounds = posX1 > animAreaWidth - square1.offsetWidth || posY1 > animAreaHeight - square1.offsetHeight || posX1 < 0 || posY1 < 0;
+                    const square2OutsideBounds = posX2 > animAreaWidth - square2.offsetWidth || posY2 < 0 || posX2 < 0 || posY2 > animAreaHeight - square2.offsetHeight;
+
+                    if (square1OutsideBounds) {
+                        squaresStopped = true;
+                    }
+                    if (square2OutsideBounds) {
+                        squaresStopped2 = true;
+                    }
+
+                    if (!squaresStopped) {
+                        square1.style.transform = `translate(${Math.min(posX1, animAreaWidth - square1.offsetWidth)}px, ${Math.min(posY1, animAreaHeight - square1.offsetHeight)}px)`;
+                    }
+                    if (!squaresStopped2) {
+                        square2.style.transform = `translate(${Math.min(posX2, animAreaWidth - square2.offsetWidth)}px, ${Math.min(posY2, animAreaHeight - square2.offsetHeight)}px)`;
+                    }
+
+                    if (!squaresStopped || !squaresStopped2) {
+                        if (!animArea.contains(square1) && !squaresStopped) {
+                            animArea.appendChild(square1);
+                        }
+                        if (!animArea.contains(square2) && !squaresStopped2) {
+                            animArea.appendChild(square2);
+                        }
+                        if (animating) {
+                            requestAnimationFrame(animateSquares);
+                        }
+                    }
+                }
+
+                animating = true;
+                animateSquares();  
+            }
+
+            function stopAnimation() {
+                squaresStopped = true;
+                squaresStopped2 = true;
+                animating = false;
+                squares.forEach(square => {
+                    square.remove();
+                });
+            }
+
+            const playButton = document.querySelector('.play-button');
+            playButton.addEventListener('click', moveSquares);
+
+            const closeButton = document.querySelector('.close-button');
+            closeButton.addEventListener('click', stopAnimation);
+        });
+    </script>
+</body>
+</html>
